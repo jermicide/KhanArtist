@@ -1,0 +1,20 @@
+<div class="ngx-editor-container">
+    <form [formGroup]="form">
+      <div class="editor-wrapper">
+        <!-- Use ngx-editor-menu for displaying the toolbar -->
+        <ngx-editor-menu [editor]="editor"></ngx-editor-menu>
+        
+        <!-- The editor component without toolbar property -->
+        <ngx-editor
+          [editor]="editor"
+          formControlName="editorContent"
+          [placeholder]="'Type here...'"
+        ></ngx-editor>
+      </div>
+      
+      <div *ngIf="editorContent.value" class="preview mt-4">
+        <h3>Preview:</h3>
+        <div [innerHTML]="editorContent.value"></div>
+      </div>
+    </form>
+  </div>
